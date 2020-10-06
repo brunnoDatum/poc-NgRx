@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductsComponent } from './shop-module/products/products.component';
+import { CartComponent } from './shop-module/cart/cart.component';
+import { ProductsDetailComponent } from './shop-module/products-detail/products-details.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { ProductsComponent } from './products/products.component';
-import { CartComponent } from './cart/cart.component';
-import { ProductsDetailComponent } from './products-detail/products-details.component';
+import { reducer } from './sm-store/reducers/reducer';
+import { ProductService } from './core/product.service';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,9 @@ import { ProductsDetailComponent } from './products-detail/products-details.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    })
+    StoreModule.forRoot({ cart: reducer })
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
