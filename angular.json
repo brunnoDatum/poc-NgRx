@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "poc-NgRx2": {
+    "poc-NgRx": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/poc-NgRx2",
+            "outputPath": "dist/poc-NgRx",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "poc-NgRx2:build"
+            "browserTarget": "poc-NgRx:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "poc-NgRx2:build:production"
+              "browserTarget": "poc-NgRx:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poc-NgRx2:build"
+            "browserTarget": "poc-NgRx:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "poc-NgRx2:serve"
+            "devServerTarget": "poc-NgRx:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "poc-NgRx2:serve:production"
+              "devServerTarget": "poc-NgRx:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "poc-NgRx2"
+  "defaultProject": "poc-NgRx"
 }
