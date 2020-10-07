@@ -24,15 +24,14 @@ export class ProductsDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const id = params.id;
+      const id = Number(params.id);
 
-      if (id) {
-        this.subscription = this.productService.getProduct(id).subscribe(response => {
-          this.product = response;
-        }, error => {
-          console.error(error);
-        });
-      }
+      // this.subscription = this.productService.getProduct(id).subscribe(response => {
+      //   this.product = response;
+      // }, error => {
+      //   console.error(error);
+      // });
+
     }, error => {
       console.error(error);
     });

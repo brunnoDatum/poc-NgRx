@@ -1,19 +1,34 @@
-import { Product } from '../sm-store/models/product.model';
+export const status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
-export const PRODUCTS: Product[] = [
-    {
-        id: 0,
-        name: 'HP Inspirion',
-        price: 700.00
-    },
-    {
-        id: 1,
-        name: 'MacBook Pro 2018',
-        price: 15000.00
-    },
-    {
-        id: 2,
-        name: 'Dell 5500',
-        price: 3000.00
-    }
+export const productNames: string[] = [
+    'Bamboo Watch',
+    'Black Watch',
+    'Blue Band',
+    'Blue T-Shirt',
+    'Bracelet',
+    'Brown Purse',
+    'Chakra Bracelet',
+    'Galaxy Earrings',
+    'Game Controller',
+    'Gaming Set',
+    'Gold Phone Case',
+    'Green Earbuds',
+    'Green T-Shirt',
+    'Grey T-Shirt',
+    'Headphones',
+    'Light Green T-Shirt',
+    'Lime Band',
+    'Mini Speakers',
+    'Painted Phone Case',
+    'Pink Band',
+    'Pink Purse',
+    'Purple Band',
+    'Purple Gemstone Necklace',
+    'Purple T-Shirt',
+    'Shoes',
+    'Sneakers',
+    'Teal T-Shirt',
+    'Yellow Earbuds',
+    'Yoga Mat',
+    'Yoga Set',
 ];
