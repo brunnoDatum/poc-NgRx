@@ -3,8 +3,19 @@
 
     <div class="my-list">
       <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
-      <h3>{{product?.name}}</h3>
-      <span class="pull-right">{{product?.price | currency}}</span>
+
+      <div class="p-grid">
+        <div class="p-col-12 p-text-center">
+          <h3 class="product-name">{{product?.name}}</h3>
+        </div>
+      </div>
+
+      <div class="p-grid">
+        <div class="p-col-12 p-text-center">
+          <span class="product-price">{{product?.price | currency}}</span>
+        </div>
+      </div>
+
       <div class="offer">
         Extra 5% Off. Cart value $ {{0.5 * product?.price}}
       </div>

@@ -21,6 +21,8 @@ import { RatingModule } from 'primeng/rating';
 import { RippleModule } from 'primeng/ripple';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import { PanelModule } from 'primeng/panel';
     RatingModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cart: reducer })
+    StoreModule.forRoot({ cart: reducer }),
+    ToastModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

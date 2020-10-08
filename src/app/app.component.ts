@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Product } from './sm-store/models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,14 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit {
 
   public title = 'poc-NgRx';
-  public cart: any[];
+  public cart: Observable<Product[]>;
 
   constructor(
     private store: Store<any>
   ) { }
 
   ngOnInit(): void {
-    this.store.select('cart').subscribe((state => this.cart = state));
+    this.cart = this.store.select('cart');
   }
 
 }

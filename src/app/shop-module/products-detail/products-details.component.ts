@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../core/product.service';
 import * as Cart from '../../sm-store/actions/actions';
@@ -20,17 +21,18 @@ export class ProductsDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
+    private messageService: MessageService,
     private store: Store<any>) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const id = Number(params.id);
+      const id = params.id;
 
-      // this.subscription = this.productService.getProduct(id).subscribe(response => {
-      //   this.product = response;
-      // }, error => {
-      //   console.error(error);
-      // });
+      this.subscription = this.productService.getProduct(id).subscribe(response => {
+        this.product = response;
+      }, error => {
+        console.error(error);
+      });
 
     }, error => {
       console.error(error);
@@ -39,6 +41,7 @@ export class ProductsDetailComponent implements OnInit, OnDestroy {
 
   public addToCart(product): void {
     this.store.dispatch(new Cart.AddProduct(product));
+    this.messageService.add({ severity: 'success', summary: 'Product Added', detail: 'Product was successfully added to cart!' });
   }
 
   ngOnDestroy(): void {

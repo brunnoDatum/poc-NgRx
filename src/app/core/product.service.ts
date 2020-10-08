@@ -16,6 +16,13 @@ export class ProductService {
         return this.http.get<Product[]>('assets/products.json').pipe(map((response: any) => response.data));
     }
 
+    public getProduct(id: string): Observable<Product> {
+        return this.http.get<Product>('assets/products.json').pipe(map((response: any) => {
+            const list = response.data;
+            return list.find(p => p.id === id);
+        }));
+    }
+
     generatePrduct(): Product {
         const product: Product = {
             id: this.generateId(),

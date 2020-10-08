@@ -1,12 +1,57 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor="let product of cart | async">
-  <div class="my-list">
-    <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
-    <h3>{{product.name}}</h3>
-    <span>$</span>
-    <span class="pull-right">{{product.price}}</span>
-    <div class="offer">
-      Extra 5% Off. Cart value $ {{0.5 * product.price}}
-      <a (click)="removeFromCart(product)" class="btn btn-info">Remove From Cart</a>
+<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+    <div class="p-flex p-flex-column" style="flex: 1">
+      <div class="p-text-center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+        <h4>{{message.summary}}</h4>
+        <p>{{message.detail}}</p>
+      </div>
+      <div class="p-grid p-fluid">
+        <div class="p-col-6">
+          <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-success"></button>
+        </div>
+        <div class="p-col-6">
+          <button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+        </div>
+      </div>
     </div>
+  </ng-template>
+</p-toast>
+
+
+<div class="p-grid p-mt-2">
+  <div class="p-col-12 p-text-center" *ngFor="let product of cart | async">
+    <div class="my-list">
+      <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
+
+      <div class="p-grid p-mt-2">
+        <div class="p-col-12 p-text-center">
+          <h3>{{product.name}}</h3>
+        </div>
+      </div>
+
+      <div class="p-grid p-mt-2">
+        <div class="p-col-12 p-text-center">
+          <span class="pull-right">{{product?.price | currency}}</span>
+        </div>
+      </div>
+
+      <div class="offer">
+        Extra 5% Off. Cart value $ {{0.5 * product?.price}}
+
+        <div class="p-grid p-mt-2">
+          <div class="p-col-12 p-text-center">
+            <p-button label="Remove From Cart" (click)="showConfirm(product)"></p-button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="p-grid p-mt-2">
+  <div class="p-col-12 p-text-center">
+    <button pButton type="button" label="Back to List" class="p-button-link" [routerLink]="['/products']"></button>
   </div>
 </div>
