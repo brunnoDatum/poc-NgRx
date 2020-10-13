@@ -32,7 +32,7 @@ import { MessageService } from 'primeng/api';
     ProductsDetailComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'pocNgRx' }),
     BrowserAnimationsModule,
     DataViewModule,
     PanelModule,
