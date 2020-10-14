@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { MessageService } from 'primeng/api';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'pocNgRx' }),
+    TransferHttpCacheModule,
     BrowserAnimationsModule,
     DataViewModule,
     PanelModule,
